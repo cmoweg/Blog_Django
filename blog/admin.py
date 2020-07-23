@@ -1,4 +1,12 @@
 from django.contrib import admin
-from .models import Post
+from blog import models
 
-admin.site.register(Post)
+
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('category_name', 'count_post')
+
+
+@admin.register(models.Post)
+class PostAdmin(admin.ModelAdmin):
+    pass
